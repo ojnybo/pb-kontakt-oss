@@ -2,32 +2,25 @@ version: 2.1
 jobs:
   build-react-app:
     docker:
-      - image: circleci/openjdk:8-jdk
+      - image: circleci/node:11.7.0
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - mvn-dependencies-{{ checksum "pom.xml" }}
-            - mvn-dependencies-
       - run:
-          name: Installing dependencies
-          command: mvn dependency:go-offline
-      - save_cache:
-          paths:
-            - ~/.m2
-          key: mvn-dependencies-{{ checksum "pom.xml" }}
+          name: Installer npm pakker
+          command: |
+            npm ci
       - run:
-          name: Building project
-          command: mvn package
+          name: Bygg React app
+          command: |
+            npm run build
       - persist_to_workspace:
           root: .
           paths:
-            - target/*
-
+            - build/*
 
   deploy-til-dev:
     docker:
-      - image: circleci/openjdk:8-jdk
+      - image: circleci/node:11.7.0
     steps:
       - checkout
       - sett-miljovariabler
@@ -43,7 +36,7 @@ jobs:
             echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
             docker push "$DOCKER_IMAGE_VERSIONED"
       - run:
-          name: Deployer til devmvn
+          name: Deployer til dev
           command: |
             curl -i \
                 -X POST \
@@ -66,7 +59,7 @@ jobs:
 
   deploy-til-prod:
     docker:
-      - image: circleci/openjdk:8-jdk
+      - image: circleci/node:11.7.0
     steps:
       - checkout
       - sett-miljovariabler
