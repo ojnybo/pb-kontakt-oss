@@ -33,6 +33,11 @@ const startServer = html => {
   );
 
   server.use(
+    "/person/tilbakemeldinger/static/css",
+    express.static(path.resolve(`${__dirname}/..`, "build/static/css"))
+  );
+
+  server.use(
     "/person/tilbakemeldinger/static/media",
     express.static(path.resolve(`${__dirname}/..`, "build/static/media"))
   );
