@@ -1,5 +1,5 @@
-import React from 'react';
-import logo from './assets/logo.svg';
+import React from "react";
+import logo from "./assets/logo.svg";
 
 const App: React.FC = () => {
   return (
@@ -20,6 +20,6 @@ const App: React.FC = () => {
       </header>
     </div>
   );
-}
+};
 
 export default App;
