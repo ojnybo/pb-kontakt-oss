@@ -3,9 +3,10 @@ import { withRouter, RouteComponentProps } from "react-router";
 import { Element } from "nav-frontend-typografi";
 import Veileder from "nav-frontend-veileder";
 import VeilederIcon from "../../assets/Veileder.svg";
+import { baseUrl } from "../../App";
 
 const ColorBar = (props: RouteComponentProps) =>
-  props.location.pathname === "/" ? (
+  props.location.pathname === "/" || props.location.pathname === baseUrl ? (
     <div className="header header__frontpage">
       <div className="header__icon">
         <Veileder
