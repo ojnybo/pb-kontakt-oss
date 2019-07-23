@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import Veilederpanel from "nav-frontend-veilederpanel";
 import VeilederIcon from "../../assets/Veileder.svg";
 import { Normaltekst, Sidetittel, Undertittel } from "nav-frontend-typografi";
