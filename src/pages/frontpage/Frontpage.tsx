@@ -2,7 +2,7 @@ import React from "react";
 import Veilederpanel from "nav-frontend-veilederpanel";
 import VeilederIcon from "../../assets/Veileder.svg";
 import { Sidetittel } from "nav-frontend-typografi";
-import Lenker from "./FrontpageLenker.json";
+import { lenker } from "./FrontpageLenker";
 
 const Frontpage = () => (
   <div className="frontpage">
@@ -12,7 +12,12 @@ const Frontpage = () => (
       </Veilederpanel>
     </header>
     <div className="frontpage__content">
-      <Sidetittel>Tilbakemelding til NAV</Sidetittel>
+      {lenker.map(lenke => (
+        <>
+          <Sidetittel>{lenke.tittel}</Sidetittel>
+          <div className="frontpage__lenke">{lenke.beskrivelse}</div>
+        </>
+      ))}
     </div>
   </div>
 );
