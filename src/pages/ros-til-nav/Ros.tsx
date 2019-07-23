@@ -12,6 +12,7 @@ import Lenke from "nav-frontend-lenker";
 import { baseUrl } from "../../App";
 
 const Ros = () => {
+  document.title = "Ros til NAV - www.nav.no";
   const [rosTilHvem, settRosTilHvem] = useState();
 
   const onRosTilHvemClick = (

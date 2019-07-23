@@ -12,6 +12,7 @@ import Lenke from "nav-frontend-lenker";
 import { baseUrl } from "../../App";
 
 const FeilOgMangler = () => {
+  document.title = "Feil og mangler - www.nav.no";
   const [rosTilHvem, settRosTilHvem] = useState();
 
   const onRosTilHvemClick = (
