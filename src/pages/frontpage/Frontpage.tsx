@@ -12,8 +12,13 @@ const Frontpage = () => (
     </header>
     <div className="frontpage__content">
       {lenker.map((lenke, key) => (
-        <Lenkepanel href={lenke.lenke} tittelProps="sidetittel" border>
-          <div className="lenke__container" key={key}>
+        <Lenkepanel
+          key={key}
+          href={lenke.lenke}
+          tittelProps="sidetittel"
+          border
+        >
+          <div className="lenke__container">
             <div className="lenke__tittel">
               <Undertittel>{lenke.tittel}</Undertittel>
             </div>
