@@ -388,3 +388,19 @@
 .frontpage__header {
   margin: 1rem 0;
 }
+.header {
+  width: 100%;
+  background-color: #99c2e8;
+  min-height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header__frontpage {
+  min-height: 10rem;
+  margin-bottom: 3rem;
+}
+.header__icon {
+  position: absolute;
+  margin-top: 2rem;
+}
