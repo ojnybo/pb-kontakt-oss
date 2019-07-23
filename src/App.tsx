@@ -5,11 +5,11 @@ import Frontpage from "./pages/frontpage/Frontpage";
 const App: React.FC = () => {
   const baseUrl = "/person/tilbakemeldinger";
   return (
-    <div className="pagecontent">
-      <Router>
+    <Router>
+      <div className="pagecontent">
         <Route path={`(|${baseUrl})`} component={Frontpage} />
-      </Router>
-    </div>
+      </div>
+    </Router>
   );
 };
 
