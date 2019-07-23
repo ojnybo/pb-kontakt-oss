@@ -1,15 +1,17 @@
-import React from "react";
+import React, { FC } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Frontpage from "./pages/frontpage/Frontpage";
+import Header from "./components/header/Header";
 
-const App: React.FC = () => {
-  const baseUrl = "/person/tilbakemeldinger";
+export const baseUrl = "/person/tilbakemeldinger";
+const App: FC = () => {
   return (
-    <div className="pagecontent">
-      <Router>
-        <Route path={`(|${baseUrl})`} component={Frontpage} />
-      </Router>
-    </div>
+    <Router>
+      <Header />
+      <div className="pagecontent">
+        <Route exact path={`(|${baseUrl})`} component={Frontpage} />
+      </div>
+    </Router>
   );
 };
 
