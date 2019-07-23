@@ -6,8 +6,10 @@ import {
   RadioPanelGruppe,
   TextareaControlled
 } from "nav-frontend-skjema";
-import { Hovedknapp } from "nav-frontend-knapper";
+import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { Link } from "react-router-dom";
+import Lenke from "nav-frontend-lenker";
+import { baseUrl } from "../../App";
 
 const Opplysninger = () => {
   const [rosTilHvem, settRosTilHvem] = useState();
@@ -19,17 +21,28 @@ const Opplysninger = () => {
 
   return (
     <>
+      <div className="ros-til-nav__felt">
+        <Lenke href={baseUrl}>Tilbake</Lenke>
+      </div>
       <Veilederpanel svg={<img src={VeilederIcon} alt="Veileder" />}>
         Takk for at du vil dele din opplevelse med oss! Vi sørger for at rosen
         kommer fram til riktig person. Unngå å nevne sensitive
         personopplysninger, som for eksempel opplysninger om helseforhold eller
         diagnoser.
       </Veilederpanel>
-      <div className="ros-til-nav__felt">
-        <Input label={"Navn"} />
-      </div>
-      <div className="ros-til-nav__felt">
-        <Input label={"Telefonnummer"} />
+      <div className="ros-til-nav__rad">
+        <div
+          className="ros-til-nav__kolonne ros-til-nav__felt"
+          style={{ paddingRight: "0.25rem" }}
+        >
+          <Input label={"Navn"} />
+        </div>
+        <div
+          className="ros-til-nav__kolonne ros-til-nav__felt"
+          style={{ paddingLeft: "0.25rem" }}
+        >
+          <Input label={"Telefonnummer"} />
+        </div>
       </div>
       <RadioPanelGruppe
         radios={[
@@ -45,10 +58,15 @@ const Opplysninger = () => {
       <div className="ros-til-nav__felt">
         <TextareaControlled defaultValue={""} label={"Melding til NAV"} />
       </div>
-      <div className="ros-til-nav__knapp">
-        <Link to={"/person/tilbakemeldinger/ros-til-nav/melding"}>
-          <Hovedknapp>Neste</Hovedknapp>
-        </Link>
+      <div className="ros-til-nav__knapper">
+        <div className="ros-til-nav__knapp">
+          <Hovedknapp>Send</Hovedknapp>
+        </div>
+        <div className="ros-til-nav__knapp">
+          <Link to={baseUrl}>
+            <Knapp>Tilbake</Knapp>
+          </Link>
+        </div>
       </div>
     </>
   );
