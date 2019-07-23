@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import Lenke from "nav-frontend-lenker";
 import { baseUrl } from "../../App";
 
-const Ros = () => {
+const FeilOgMangler = () => {
   const [rosTilHvem, settRosTilHvem] = useState();
 
   const onRosTilHvemClick = (
@@ -25,10 +25,8 @@ const Ros = () => {
         <Lenke href={baseUrl}>Tilbake</Lenke>
       </div>
       <Veilederpanel svg={<img src={VeilederIcon} alt="Veileder" />}>
-        Takk for at du vil dele din opplevelse med oss! Vi sørger for at rosen
-        kommer fram til riktig person. Unngå å nevne sensitive
-        personopplysninger, som for eksempel opplysninger om helseforhold eller
-        diagnoser.
+        Takk for at du sier ifra om feil og mangler. Vi sørger for at meldingen
+        kommer fram til riktig person.
       </Veilederpanel>
       <div className="ros-til-nav__rad">
         <div
@@ -46,13 +44,16 @@ const Ros = () => {
       </div>
       <RadioPanelGruppe
         radios={[
-          { label: "NAV Kontaktsenter", value: "nav-kontaktsenter" },
-          { label: "NAVs digitale løsninger", value: "nav-digitale-losninger" },
-          { label: "NAV-kontor", value: "nav-kontor" }
+          { label: "Teknisk feil", value: "teknisk-feil" },
+          { label: "Feil informasjon", value: "feil-informasjon" },
+          {
+            label: "Lav grad av universell utforming",
+            value: "universell-utforming"
+          }
         ]}
         checked={rosTilHvem}
-        name={"ros-til-hvem"}
-        legend={"Hvem vil du gi ros til? *"}
+        name={"type-feil"}
+        legend={"Hva slags feil eller mangel fant du? *"}
         onChange={onRosTilHvemClick}
       />
       <div className="ros-til-nav__felt">
@@ -75,4 +76,4 @@ const Ros = () => {
     </>
   );
 };
-export default Ros;
+export default FeilOgMangler;
