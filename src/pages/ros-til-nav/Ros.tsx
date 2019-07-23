@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import Veilederpanel from "nav-frontend-veilederpanel";
 import VeilederIcon from "../../assets/Veileder.svg";
-import { Input, RadioPanelGruppe } from "nav-frontend-skjema";
+import {
+  Input,
+  RadioPanelGruppe,
+  TextareaControlled
+} from "nav-frontend-skjema";
 import { Hovedknapp } from "nav-frontend-knapper";
 import { Link } from "react-router-dom";
 
@@ -17,7 +21,9 @@ const Opplysninger = () => {
     <>
       <Veilederpanel svg={<img src={VeilederIcon} alt="Veileder" />}>
         Takk for at du vil dele din opplevelse med oss! Vi sørger for at rosen
-        kommer fram til riktig person.
+        kommer fram til riktig person. Unngå å nevne sensitive
+        personopplysninger, som for eksempel opplysninger om helseforhold eller
+        diagnoser.
       </Veilederpanel>
       <div className="ros-til-nav__felt">
         <Input label={"Navn"} />
@@ -36,6 +42,9 @@ const Opplysninger = () => {
         legend={"Hvem vil du gi ros til?"}
         onChange={onRosTilHvemClick}
       />
+      <div className="ros-til-nav__felt">
+        <TextareaControlled defaultValue={""} label={"Melding til NAV"} />
+      </div>
       <div className="ros-til-nav__knapp">
         <Link to={"/person/tilbakemeldinger/ros-til-nav/melding"}>
           <Hovedknapp>Neste</Hovedknapp>
