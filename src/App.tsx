@@ -9,7 +9,7 @@ const App: FC = () => {
     <Router>
       <Header />
       <div className="pagecontent">
-        <Route path={`(|${baseUrl})`} component={Frontpage} />
+        <Route exact path={`(|${baseUrl})`} component={Frontpage} />
       </div>
     </Router>
   );
