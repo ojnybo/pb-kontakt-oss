@@ -4,9 +4,8 @@ import { Element } from "nav-frontend-typografi";
 import Veileder from "nav-frontend-veileder";
 import VeilederIcon from "../../assets/Veileder.svg";
 
-const ColorBar = (props: RouteComponentProps) => {
-  console.log(props);
-  return props.location.pathname === "/" ? (
+const ColorBar = (props: RouteComponentProps) =>
+  props.location.pathname === "/" ? (
     <div className="header header__frontpage">
       <div className="header__icon">
         <Veileder
@@ -22,6 +21,4 @@ const ColorBar = (props: RouteComponentProps) => {
       <Element>Tilbakemelding på service</Element>
     </div>
   );
-};
-
 export default withRouter(ColorBar);
