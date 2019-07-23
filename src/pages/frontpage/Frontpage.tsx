@@ -2,6 +2,7 @@ import React from "react";
 import { Normaltekst, Sidetittel, Undertittel } from "nav-frontend-typografi";
 import { lenker } from "./FrontpageLenker";
 import Lenkepanel from "nav-frontend-lenkepanel";
+import Lenke from "nav-frontend-lenker";
 
 const Frontpage = () => (
   <div className="frontpage">
@@ -24,6 +25,11 @@ const Frontpage = () => (
             </div>
             <div className="lenke__beskrivelse">
               <Normaltekst>{lenke.beskrivelse}</Normaltekst>
+            </div>
+            <div>
+              <Lenke href={lenke.lenke}>
+                <Normaltekst>{lenke.lenkeTekst}</Normaltekst>
+              </Lenke>
             </div>
           </div>
         </Lenkepanel>
