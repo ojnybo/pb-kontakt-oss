@@ -1,4 +1,4 @@
-@paddingy: 2rem;
+@paddingy: 3rem;
 @paddingx: @paddingy * 1;
 
 @ikonSize: 3em;
@@ -6,11 +6,11 @@
 @ikonContainerSize: @ikonSize + @ikonPadding;
 
 @borderColor: @navGra20;
-@borderSize: 1px;
+@borderSize: 0px;
 
 .ikonpanel {
-  padding: @paddingy @paddingx;
-  margin: 1rem 0;
+  padding: @paddingy @paddingx @paddingy @paddingx;
+  margin: 2rem 0;
   position: relative;
   display: flex;
   .setPanelBorder();
@@ -18,8 +18,17 @@
   &__ikon-container {
     width: @ikonContainerSize;
     height: @ikonContainerSize;
-    background-color: white;
     border-radius: 50%;
+    background-color: #cbe2ff;
+    display: flex;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    margin-top: -(@ikonContainerSize / 2 + @paddingy);
+    margin-left: -@ikonContainerSize / 2;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
   }
 
   &__ikon {
