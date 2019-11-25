@@ -48,7 +48,8 @@ const sendJson = (url: string, data: Outbound) => {
   return fetch(url, {
     method: "POST",
     body: JSON.stringify(data),
-    headers: { "Content-Type": "application/json;charset=UTF-8" }
+    headers: { "Content-Type": "application/json;charset=UTF-8" },
+    credentials: "include"
   })
     .then(response => sjekkForFeil(url, response))
     .then(parseJson)
@@ -81,8 +82,8 @@ export const postSamiskBestillSamtale = (data: OutboundBestillingAvSamtale) =>
   sendJson(`${apiUrl}/mottak/bestilling-av-samtale`, data);
 
 export const fetchServerTidOffset = (callback: Function) => {
-  fetch(baseUrl, {method: "HEAD"})
-    .then((res) => {
+  fetch(baseUrl, { method: "HEAD" })
+    .then(res => {
       const date = res.headers.get("date");
       if (!date) {
         console.log("Couldn't fetch server time!");
@@ -91,7 +92,7 @@ export const fetchServerTidOffset = (callback: Function) => {
       }
       callback(Date.parse(date) - Date.now());
     })
-    .catch((e) => console.log(e));
+    .catch(e => console.log(e));
 };
 
 /*
